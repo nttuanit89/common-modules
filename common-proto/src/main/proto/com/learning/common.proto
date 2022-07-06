@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package com.learning.proto.common;
+
+option java_multiple_files = true;
+option java_package = "com.learning.proto.common";
+
+message Status {
+  int32 code = 1;
+  string messageCode = 2;
+  string message = 3;
+}
+
+enum SignedType {
+  CONTRACT = 0;
+  OFFERING_CIRCULAR = 1;
+  MANUAL_CONTRACT = 2;
+  TERM_SHEET = 3;
+  FRONT_ID = 4;
+  BACK_ID = 5;
+  PERSONAL_PORTRAIT = 6;
+  BUSINESS_LICENSE = 7;
+  TEMPLATE = 8;
+  ISSUER_LOGO = 9;
+  BOND_DESCRIPTION = 10;
+  PROFESSIONAL_INVESTOR = 11;
+}
+
+enum Roles {
+  USER = 0;
+  AGENT = 1;
+  SALE_ADMIN = 2;
+  BRANCH_ADMIN = 3;
+  COMPANY_ADMIN = 4;
+  RETAIL_PRODUCT_ADMIN = 5;
+  ACCOUNTANT_ADMIN = 6;
+  CUSTODY_ADMIN = 7;
+  FINBASE_ADMIN = 8;
+  OPERATION_ADMIN = 9;
+  SYSTEM_ADMIN = 10;
+  SALE_MANAGER = 11;
+  ADVISORY_AGENT = 12;
+  PAYING_AGENT = 13;
+  CUSTOMER_ACCOUNT_ADMIN = 14;
+  TENANT_SYS_ADMIN = 15;
+  PORTFOLIO_MANAGER = 16;
+  CUSTOMER_REPORT = 17;
+  TRANSACTION_REPORT = 18;
+  CUSTOMER_DETAIL_REPORT = 19;
+  PROJECTION_REPORT = 20;
+  CARE_SALE_ADMIN = 21;
+  CARE_SALE_MANAGER = 22;
+}
