@@ -72,12 +72,12 @@ public interface IService {
   }
 
   private void logCaller() {
-    Predicate<String> finbaseCaller = cn -> cn.startsWith("com.finbase.ftp.");
+    Predicate<String> baseCaller = cn -> cn.startsWith("com.learning.");
     Predicate<String> controller = cn -> cn.contains("Controller");
     Predicate<String> service =
         cn -> cn.contains("Service") && !cn.contains(IService.class.getName());
     Predicate<StackFrame> caller =
-        st -> finbaseCaller.and(service.or(controller)).test(st.getClassName());
+        st -> baseCaller.and(service.or(controller)).test(st.getClassName());
     Function<StackFrame, String> formatter =
         st ->
             "Execute "
@@ -160,10 +160,10 @@ public interface IService {
    * @param e the given {@link Exception}
    */
   private void logException(Throwable e) {
-    Predicate<String> finbaseCaller = cn -> cn.startsWith("com.finbase.ftp.");
+    Predicate<String> baseCaller = cn -> cn.startsWith("com.learning.");
     Predicate<String> controller = cn -> cn.contains("Controller");
     Predicate<StackFrame> fromController =
-        st -> finbaseCaller.and(controller).test(st.getClassName());
+        st -> baseCaller.and(controller).test(st.getClassName());
     if (StackWalker.getInstance().walk(s -> s.anyMatch(fromController))) {
       // Let ControllerAdvice do the job
       return;

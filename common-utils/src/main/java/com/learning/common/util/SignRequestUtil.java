@@ -2,7 +2,6 @@ package com.learning.common.util;
 
 import com.google.common.hash.Hashing;
 import org.springframework.security.crypto.codec.Hex;
-import org.springframework.util.StreamUtils;
 import org.springframework.util.StringUtils;
 
 import javax.crypto.KeyGenerator;
